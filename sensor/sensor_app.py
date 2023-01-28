@@ -2,7 +2,9 @@
 from load_data import load_sensor_data
 from house_info import HouseInfo
 from temperature_info import TemperatureData
+from humidity_info import HumidityData
 from datetime import date, datetime
+from statistics import mean
 
 ##############################
 # Do not remove these two lines
@@ -37,7 +39,10 @@ print("\nHouse Temperature sensor records for date: {} = {}".format(
 print("\tMaximum: {0}, Minimum: {1} temperatures".format(max(recs), min(recs)))
 
 # Module 4 code here:
-
+humidity_data = HumidityData(data)
+recs = humidity_data.get_data_by_area(rec_area=test_area)
+print("\nHouse Humidity sensor records for area {} = {}".format(test_area, len(recs)))
+print("\tAverage: {} humidity".format(mean(recs)))
 
 # Module 5 code here:
 
