@@ -9,6 +9,7 @@ print("Sensor Data App")
 ##############################
 
 # Module 1 code here:
+data = load_sensor_data()
 print("Loaded records: {}".format(len(data)))
 
 # Module 2 code here:
