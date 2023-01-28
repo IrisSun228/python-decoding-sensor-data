@@ -15,11 +15,11 @@ data = []
 print("Sensor Data App")
 ##############################
 
-# Module 1 code here:
+# Module 1 (Load Data) code here:
 data = load_sensor_data()
 print("Loaded records: {}".format(len(data)))
 
-# Module 2 code here:
+# Module 2 (House Info) code here:
 house_info = HouseInfo(data)
 test_area = 1
 recs = house_info.get_data_by_area("id", rec_area=test_area)
@@ -29,7 +29,7 @@ test_date = datetime.strptime("5/9/20", "%m/%d/%y")
 recs = house_info.get_data_by_date("id", rec_date=test_date)
 print("\nHouse sensor records for date: {} = {}".format(test_date.strftime("%m/%d/%y"), len(recs)))
 
-# Module 3 code here:
+# Module 3 (Temperature Info) code here:
 temperature_data = TemperatureData(data)
 recs = temperature_data.get_data_by_area(rec_area=test_area)
 print("\nHouse Temperature sensor records for area {} = {}".format(test_area, len(recs)))
@@ -40,7 +40,7 @@ print("\nHouse Temperature sensor records for date: {} = {}".format(
     test_date.strftime("%m/%d/%y"), len(recs)))
 print("\tMaximum: {0}, Minimum: {1} temperatures".format(max(recs), min(recs)))
 
-# Module 4 code here:
+# Module 4-1 (Humidity Info) code here:
 humidity_data = HumidityData(data)
 recs = humidity_data.get_data_by_area(rec_area=test_area)
 print("\nHouse Humidity sensor records for area {} = {}".format(test_area, len(recs)))
@@ -51,7 +51,7 @@ print("House Humidity sensor records for date: {} = {}".format(
     test_date.strftime("%m/%d/%y"), len(recs)))
 print("\tAverrage: {} humidity".format(mean(recs)))
 
-
+# Module 4-2 (Particle Info) code here:
 particle_data = ParticleData(data)
 recs = particle_data.get_data_by_area(rec_area=test_area)
 print("\nHouse Particle sensor records for area {} = {}".format(test_area, len(recs)))
@@ -67,7 +67,7 @@ print("\tGood Air Quality Recs: {}".format(concentrations["good"]))
 print("\tModerate Air Quality Recs: {}".format(concentrations["moderate"]))
 print("\tBad Air Quality Recs: {}".format(concentrations["bad"]))
 
-# Module 5 code here:
+# Module 5 (Energy Info) code here:
 energy_data = EnergyData(data)
 recs = energy_data.get_data_by_area(rec_area=test_area)
 print("\nHouse Energy sensor records for area {} = {}".format(test_area, len(recs)))
